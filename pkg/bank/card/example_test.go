@@ -96,7 +96,19 @@ func ExampleTotal() {
 			Balance: 10_000_00,
 			Active:  true,
 		},
+		types.Card{
+			Balance: 20_000_00,
+			Active:  true,
+		},
+		types.Card{
+			Balance: 10_000_00,
+			Active:  false,
+		},
+		types.Card{
+			Balance: 25_000_00,
+			Active:  true,
+		},
 	}
 	fmt.Println(Total(cards))
-	// Output: 2000000
+	// Output: 7500000
 }
