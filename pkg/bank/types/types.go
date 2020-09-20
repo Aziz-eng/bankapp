@@ -34,3 +34,9 @@ type Card struct{
 	Active 		bool
 	MinBalance	Money
 }
+// Payments source it doing somethink
+type PaymentSource struct {
+	Type string // 'card'
+	Number PAN //номер вида '5555 xxxx xxxx 2525'
+	Balance Money
+}

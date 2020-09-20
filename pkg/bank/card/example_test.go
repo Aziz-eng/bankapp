@@ -86,29 +86,59 @@ import (
 // 	//Output: 1000000000
 // }
 
-func ExampleTotal() {
+// func ExampleTotal() {
+// 	cards := []types.Card{
+// 		types.Card{
+// 			Balance: 10_000_00,
+// 			Active:  true,
+// 		},
+// 		types.Card{
+// 			Balance: 10_000_00,
+// 			Active:  true,
+// 		},
+// 		types.Card{
+// 			Balance: 20_000_00,
+// 			Active:  true,
+// 		},
+// 		types.Card{
+// 			Balance: 10_000_00,
+// 			Active:  false,
+// 		},
+// 		types.Card{
+// 			Balance: 25_000_00,
+// 			Active:  true,
+// 		},
+// 	}
+// 	fmt.Println(Total(cards))
+// 	// Output: 7500000
+// }
+func ExamplePaymentSources() {
 	cards := []types.Card{
-		types.Card{
-			Balance: 10_000_00,
+		{
+
+			PAN:     "2525 xxxx xxxx 0001",
+			Balance: 25000,
 			Active:  true,
 		},
-		types.Card{
-			Balance: 10_000_00,
+		{
+
+			PAN:     "2525 xxxx xxxx 0002",
+			Balance: -25000,
 			Active:  true,
 		},
-		types.Card{
-			Balance: 20_000_00,
-			Active:  true,
-		},
-		types.Card{
-			Balance: 10_000_00,
+		{
+
+			PAN:     "2525 xxxx xxxx 1101",
+			Balance: 55000,
 			Active:  false,
 		},
-		types.Card{
-			Balance: 25_000_00,
-			Active:  true,
-		},
 	}
-	fmt.Println(Total(cards))
-	// Output: 7500000
+	paymentSources := PaymentSources(cards)
+	for _, v := range paymentSources {
+		fmt.Println (v.Number)
+	}
+	
+
+	// Output: 2525 xxxx xxxx 0001
+
 }
